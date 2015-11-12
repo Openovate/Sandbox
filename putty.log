@@ -1,0 +1,7 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2015.11.11 11:52:55 =~=~=~=~=~=~=~=~=~=~=~=
+Event Log: Writing new session log (SSH packets mode) to file: putty.log
+Event Log: Looking up host "67.205.60.206"
+Event Log: Connecting to 67.205.60.206 port 22
+Event Log: We claim version: SSH-2.0-PuTTY_Snapshot_2015_11_11.5b7833c
+Event Log: Failed to connect to 67.205.60.206: Network error: Connection timed out
+Event Log: Network error: Connection timed out
