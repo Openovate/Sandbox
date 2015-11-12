@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+ssh -i ./ssh/guest.pem dhc-user@67.205.60.206
