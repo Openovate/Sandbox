@@ -4,7 +4,10 @@
 		$dbPass = '';
 		$dbName	= 'jobset';
 
-		mysql_connect("$dbServer", "$dbUser", "$dbPass") or die ("Cannot connect to the server.");
-		mysql_select_db("$dbName") or die ("Cannot connect to the database.");
+		$conn = new mysqli($dbServer, $dbUser, $dbPass, $dbName);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
 
 	?>

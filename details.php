@@ -16,6 +16,16 @@
     width: 300px;
     padding: 10px;
 }
+</style>
+
+ <style>
+  .carousel-inner > .item > width: 2000px;  img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+      align: left;
+  }
+
 #pic 
 {
   padding: 5px;
@@ -26,22 +36,6 @@
 #navpic{
   margin: 20px;
 }
-#size{
-width: 100px;
-height: 10px;
-padding: 0px;
-margin-bottom: 100px;
-}
-
-#border{
-border: 10px solid #a1a1a1;
-padding: 50px 100px;
-background: #dddddd;
-width:1365px;
-height:528px;
-border-radius: 99px;
-}
-
 
 
   </style>
@@ -59,9 +53,10 @@ border-radius: 99px;
     <div>
       <ul class="nav navbar-nav">
         <li><a href="jobcet.php">Home</a></li>
-       
+        <li><a href="jobcetadd.php">Add Job</a></li>
            
-    </div>
+                            </div>
+                        </div>
   </div>
 </div>
         
@@ -73,55 +68,36 @@ border-radius: 99px;
   </div>
 </nav>
   
-<div id = "border"> 
-
-
-
 <div class="container">
+<?php	
+require ("config.php");
 
-  <p></p>            
-  <div class="row">
-    <div class="col-md-4">
-      <a href="joblist.php" class="thumbnail"> 
-        <img src="12244179_1084346631590598_537232057_n.jpg" alt="Job List" style="width:300px;height:250px">
-      </a>
-    </div>
-    <div class="col-md-4">
-      <a href="jobcetadd.php" class="thumbnail">
-        <img src="12271319_10205317426679636_85770164_o.jpg" alt="JobCet" style="width:300px;height:250px">
-      </a>
-    </div>
-    <div class="col-md-4">
-      <a href="jobcetcontact.php" class="thumbnail">
+$id=mysql_real_escape_string($_GET['id']);
+$query  = "Select jobname,jobdetails from job where id = '$id'";
+
+$result = $conn->query($query);
+
+if ($result->num_rows > 0) {
+    
+    while($row = $result->fetch_assoc()) {
+        echo "<legend>" . $row["jobname"]. "</legend>"."<b> Job Description:</b> <br />" . $row["jobdetails"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+	echo "<a href='joblist.php'> Go Back </a>";
+
+$conn->close();
+				
+?>		
            
-        <img src="12233426_1084329811592280_88779810_n.jpg" alt="Contact Us" style="width:300px;height:250px">
-      </a>
-
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
+ 
 <br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-
 <footer class="footer" align="center" style = "color: black;">
   <div class= "container">
    <p class="text-muted">Copy right @ Jobcet</p>
-    </div>
+</div>
 </footer>
-
+</div>
 </body>
 </html>

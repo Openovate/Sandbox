@@ -12,10 +12,20 @@
 <style>
 .right {
     position: absolute;
-    right: 100px;
+    right: 300px;
     width: 300px;
     padding: 10px;
 }
+</style>
+
+ <style>
+  .carousel-inner > .item > width: 2000px;  img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+      align: left;
+  }
+
 #pic 
 {
   padding: 5px;
@@ -26,21 +36,19 @@
 #navpic{
   margin: 20px;
 }
-#size{
-width: 100px;
-height: 10px;
-padding: 0px;
-margin-bottom: 100px;
-}
 
 #border{
 border: 10px solid #a1a1a1;
 padding: 50px 100px;
 background: #dddddd;
 width:1365px;
-height:528px;
+height:900px;
 border-radius: 99px;
 }
+
+
+
+
 
 
 
@@ -53,75 +61,60 @@ border-radius: 99px;
 <nav class="navbar navbar-inverse" id = "navpic">
   <div class="container-fluid" id= "pic" >
     <div class="navbar-header">
-  
+    
+   <ul class="nav navbar-nav">
+        <li><a href="jobcet.php">Home</a></li>
+        <li><a href="jobcetadd.php">Add Job</a></li>
+
+                                  
+            
+        
+      </ul>
  
   </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li><a href="jobcet.php">Home</a></li>
-       
-           
-    </div>
-  </div>
-</div>
-        
-  </div>
-</div>
-      </ul>
+    
+    
 
     </div>
   </div>
 </nav>
+
+
   
-<div id = "border"> 
-
-
-
 <div class="container">
+		
 
-  <p></p>            
-  <div class="row">
-    <div class="col-md-4">
-      <a href="joblist.php" class="thumbnail"> 
-        <img src="12244179_1084346631590598_537232057_n.jpg" alt="Job List" style="width:300px;height:250px">
-      </a>
-    </div>
-    <div class="col-md-4">
-      <a href="jobcetadd.php" class="thumbnail">
-        <img src="12271319_10205317426679636_85770164_o.jpg" alt="JobCet" style="width:300px;height:250px">
-      </a>
-    </div>
-    <div class="col-md-4">
-      <a href="jobcetcontact.php" class="thumbnail">
+        <form method="GET" action="search.php">
+         <input type="text" class="search-query form-control" placeholder="Search" name= "search"><br>
+         <input class="btn btn-danger" type="hidden" name="searchbtn" id="searchbtn"/>    
+          </form>
+			<?php 
+				require ("config.php");
+					
+				$query = "Select * from job";
+				
+			echo "<table class='table table-bordered'>";
+			
+			foreach($conn->query($query) as $id){
+				echo "<tr><td> <legend> $id[jobname]</legend> <form method='POST' action='details.php'> <a href=details.php?id=$id[id]> <input type= button name=view class = 'btn btn-primary' value='View details'  /></a></form>" ;
+			}
+				
+			echo "</table>";
+			
+			
+			
+			?>	
+
+				
+		
            
-        <img src="12233426_1084329811592280_88779810_n.jpg" alt="Contact Us" style="width:300px;height:250px">
-      </a>
-
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
+ 
 <br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-
 <footer class="footer" align="center" style = "color: black;">
   <div class= "container">
    <p class="text-muted">Copy right @ Jobcet</p>
-    </div>
+</div>
 </footer>
-
+</div>
 </body>
 </html>
